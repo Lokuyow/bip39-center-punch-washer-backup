@@ -174,4 +174,4 @@ For the current reference layout:
 
 ## License
 
-License is not yet selected.
+This project is licensed under the [MIT License](LICENSE).
