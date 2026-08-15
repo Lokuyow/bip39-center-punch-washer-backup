@@ -1,0 +1,141 @@
+# Specification
+
+This document records the current reference format for BIP39 Center Punch Washer Backup.
+
+## Scope
+
+Current standard scope:
+
+- BIP39 English
+- 12-word mnemonic
+- DIN 9021-style M8 washer
+- SUS304 / A2 stainless steel
+- 24.0 mm OD
+- 8.4 mm ID
+- 2.0 mm thickness
+- both faces used
+
+## Face structure
+
+Read each face from the START/SET marker clockwise.
+
+```text
+START/SET | order tens | order ones | BIP39 thousands | hundreds | tens | ones | CHECK
+```
+
+There are eight logical blocks.
+
+## START/SET geometry
+
+The START/SET marker occupies the 0° block.
+
+Fixed points:
+
+- outer fixed point: radius 10.0 mm, angle 0°
+- inner fixed point: radius 6.4 mm, angle 0°
+
+SET candidates:
+
+- left: radius 8.4 mm, angle -10° / 350°
+- right: radius 8.4 mm, angle +10°
+
+Standard assignments:
+
+- A = right SET candidate marked
+- B = left SET candidate marked
+- both = reserved / invalid by default
+- neither = reserved / invalid by default
+
+## Digit cells
+
+Each decimal digit is represented by four candidate points arranged as a compact square-like cell on the washer.
+
+Reference candidate radii:
+
+- inner candidate-center radius: 7.2 mm
+- outer candidate-center radius: 9.2 mm
+
+Project-local point numbering:
+
+```text
+1   3   outside
+2   4   inside
+```
+
+The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
+
+## Order field
+
+The mnemonic position is encoded as two decimal digits:
+
+```text
+01 through 12
+```
+
+The Japanese documentation uses the term `語順` consistently for this field.
+
+## BIP39 word-number field
+
+The current standard uses a 1-based numbering of the BIP39 English list:
+
+```text
+0001 = abandon
+...
+2048 = zoo
+```
+
+This is a project-level human-facing numbering convention. It is not the 0-based 11-bit index used internally in BIP39 implementations.
+
+## CHECK field
+
+CHECK is one decimal digit calculated from the four BIP39 word-number digits only.
+
+The SET and order fields are excluded.
+
+Choose CHECK so that:
+
+```text
+BIP39 digit 1 + digit 2 + digit 3 + digit 4 + CHECK
+```
+
+is divisible by 10.
+
+Example:
+
+```text
+2048
+2 + 0 + 4 + 8 = 14
+CHECK = 6
+14 + 6 = 20
+```
+
+CHECK detects any single decimal-digit substitution but is not an error-correcting code and does not detect every possible multi-error combination.
+
+## Reading direction
+
+For either side of a washer:
+
+1. turn that side toward the reader,
+2. locate START/SET,
+3. read clockwise.
+
+Do not interpret the reverse side as a mirrored continuation of the front side.
+
+## Paper jig
+
+The reference jig is designed for A4 printing with:
+
+- 12 identical faces
+- 3 columns × 4 rows
+- 50 mm scale-verification line
+- 100% / actual-size / no-scaling printing
+
+The jig contains all candidate points, not secret-specific selections.
+
+## Punching method
+
+The current reference workflow punches directly through the paper jig with a center punch. An automatic center punch is convenient, but the data format does not require an automatic mechanism.
+
+## Status
+
+This specification is still experimental. Physical testing, dimensional verification, and independent review are expected before treating it as stable.
