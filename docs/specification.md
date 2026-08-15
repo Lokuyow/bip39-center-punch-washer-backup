@@ -4,16 +4,18 @@ This document records the current reference format for BIP39 Center Punch Washer
 
 ## Scope
 
-Current standard scope:
+The method itself is intended to be adaptable. The current reference implementation uses:
 
 - BIP39 English
-- 12-word mnemonic
+- a 12-word mnemonic as the reference example
 - DIN 9021-style M8 washer
 - SUS304 / A2 stainless steel
 - 24.0 mm OD
 - 8.4 mm ID
 - 2.0 mm thickness
 - both faces used
+
+These choices define the printable reference material in this repository; they are not fundamental requirements of the underlying method. Different washer dimensions, word counts, layouts, or tooling require corresponding geometry and recovery rules to be regenerated and independently verified.
 
 ## Face structure
 
@@ -23,11 +25,11 @@ Read each face from the START/SET marker clockwise.
 START/SET | order tens | order ones | BIP39 thousands | hundreds | tens | ones | CHECK
 ```
 
-There are eight logical blocks.
+There are eight logical blocks in the current reference layout.
 
 ## START/SET geometry
 
-The START/SET marker occupies the 0° block.
+The START/SET marker occupies the 0° block in the current reference layout.
 
 Fixed points:
 
@@ -66,7 +68,7 @@ The dot shapes for decimal digits 0–9 are those of standard braille numerals u
 
 ## Order field
 
-The mnemonic position is encoded as two decimal digits:
+In the current 12-word reference implementation, the mnemonic position is encoded as two decimal digits:
 
 ```text
 01 through 12
@@ -123,7 +125,7 @@ Do not interpret the reverse side as a mirrored continuation of the front side.
 
 ## Paper jig
 
-The reference jig is designed for A4 printing with:
+The current reference jig is designed for A4 printing with:
 
 - 12 identical faces
 - 3 columns × 4 rows
