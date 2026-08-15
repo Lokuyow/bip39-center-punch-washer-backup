@@ -1,6 +1,6 @@
 # BIP39 Center Punch Washer Backup
 
-A DIY metal-backup method for a 12-word BIP39 English mnemonic using M8 stainless-steel washers and a center punch.
+A DIY metal-backup method for a BIP39 English mnemonic using stainless-steel washers and a center punch.
 
 The design stores one mnemonic word per washer face as a human-readable decimal number encoded with four-point braille-style digits. A printable full-scale punching jig is used to position the punch marks.
 
@@ -8,17 +8,18 @@ The design stores one mnemonic word per washer face as a human-readable decimal 
 
 ## Design goals
 
-- Use inexpensive, widely available M8 stainless-steel washers.
+- Use inexpensive, widely available stainless-steel washers.
 - Avoid manual 11-bit binary conversion during backup and recovery.
 - Keep recovery possible with printed reference material and no special software.
 - Preserve word order even if washers become separated.
 - Make the start position visually identifiable.
 - Add a simple per-word error-detection check that can be verified by hand.
 - Keep the printable jig free of seed-specific secret information.
+- Keep the underlying method adaptable to different washer sizes, word counts, and physical implementations.
 
-## Current physical format
+## Current reference implementation
 
-The current reference design targets:
+The printable reference material currently provided by this repository targets:
 
 - DIN 9021-style M8 flat washer
 - SUS304 / A2 stainless steel
@@ -28,7 +29,9 @@ The current reference design targets:
 - Both faces are used
 - 1 face = 1 mnemonic word
 - 1 washer = 2 mnemonic words
-- 12-word mnemonic = 6 washers
+- Reference example: 12-word mnemonic = 6 washers
+
+These dimensions and the 12-word example are choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
 
 ## Data stored on each face
 
@@ -51,7 +54,7 @@ This is an 8-block layout:
 
 ### Order
 
-The mnemonic position is stored as two decimal digits:
+The mnemonic position is stored as two decimal digits in the current reference implementation:
 
 ```text
 01 ... 12
@@ -131,14 +134,16 @@ The current workflow uses a full-scale paper jig and punches directly through th
 
 1. Print the jig at **100% / actual size / no scaling**.
 2. Verify the printed scale using the 50 mm reference line.
-3. Align the jig with the M8 washer.
+3. Align the jig with the washer specified by that jig.
 4. Punch only the candidate positions required by the data.
 5. Remove the jig and visually verify the result.
-6. Repeat on the opposite face.
+6. Repeat on the opposite face if using both faces.
 
 The jig itself contains all candidate positions and therefore does not need to contain seed-specific secret data.
 
 ## Recovery overview
+
+For the current reference layout:
 
 1. Face the washer side being read toward you.
 2. Find the START/SET marker.
@@ -148,13 +153,14 @@ The jig itself contains all candidate positions and therefore does not need to c
 6. Decode the four-digit BIP39 word number.
 7. Decode CHECK and verify mod 10.
 8. Convert the 1-based number to the BIP39 English word.
-9. Arrange all faces by order `01` through `12`.
+9. Arrange all faces by order.
 10. Independently verify the recovered mnemonic before using it.
 
 ## Documentation
 
 - [Specification](docs/specification.md)
 - [Recovery guide](docs/recovery.md)
+- [Design rationale](docs/design-rationale.md)
 - [Japanese README](README_ja.md)
 
 ## Important limitations
@@ -164,7 +170,7 @@ The jig itself contains all candidate positions and therefore does not need to c
 - The mod-10 CHECK does not detect every possible multi-digit error.
 - SET and order are intentionally not covered by the per-face CHECK.
 - Printable dimensions must be independently verified before punching real backup material.
-- The current reference design is specifically for a 12-word BIP39 English mnemonic and the stated washer dimensions.
+- The PDFs and dimensions in this repository describe a particular reference implementation. If you adapt the method to another washer size, word count, layout, or tool, you are responsible for regenerating and verifying the geometry and recovery procedure.
 
 ## License
 
