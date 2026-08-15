@@ -1,10 +1,12 @@
 # Design Rationale
 
-This document explains why the current format looks the way it does. The project is experimental, so these decisions may change after physical testing or review.
+This document explains why the current reference format looks the way it does. The project is experimental, so these decisions may change after physical testing or review.
 
 ## Why washers?
 
-Large M8 stainless-steel washers are inexpensive, widely available, heat resistant compared with paper, and easy to stack on a bolt. Both faces can be used, allowing a 12-word mnemonic to fit on six washers.
+Stainless-steel washers are inexpensive, widely available, heat resistant compared with paper, and easy to stack on a bolt. Both faces can be used, allowing compact storage of mnemonic words.
+
+The current reference implementation uses large M8 washers and demonstrates a 12-word mnemonic on six washers, but neither M8 nor a 12-word mnemonic is a fundamental requirement of the method.
 
 ## Why decimal numbers instead of 11-bit binary?
 
@@ -36,7 +38,7 @@ The candidate points are therefore grouped closely into a square-like cell so th
 
 ## Why eight blocks?
 
-The face contains:
+The current reference face contains:
 
 - one combined START/SET block,
 - two order digits,
@@ -65,7 +67,7 @@ SET is intentionally treated as secondary metadata. Physical grouping on a bolt,
 
 The CHECK is intended primarily to protect the least redundant per-face information: the BIP39 word number.
 
-SET has other physical/contextual redundancy, including grouping washers on a bolt and potentially storing different sets separately. The order field also has physical redundancy from washer order and the relationship between the two faces of one washer.
+SET has other physical/contextual redundancy, including grouping washers on a bolt and potentially storing different sets separately. The order field can also have physical redundancy from washer order and the relationship between the two faces of one washer.
 
 Keeping CHECK limited to the BIP39 number also makes its purpose and hand calculation simple.
 
@@ -78,7 +80,7 @@ Simple mod 10 was selected because:
 - it can be calculated and verified with basic addition,
 - no lookup table or software is required,
 - any single decimal-digit substitution changes the check,
-- the project already has other layers of validation, including valid digit shapes, the `0001`–`2048` range, the 12-word BIP39 checksum, and potentially an independent backup set.
+- the project already has other layers of validation, including valid digit shapes, the `0001`–`2048` range, the BIP39 checksum, and potentially an independent backup set.
 
 It is not mathematically strongest. Some multiple errors can cancel each other out. The choice is a tradeoff favoring long-term human readability and minimal dependency.
 
@@ -93,6 +95,10 @@ The reference workflow therefore uses the printed jig directly as the positionin
 An automatic center punch is convenient and is the expected tool for many users, but the encoding format does not depend on the automatic mechanism. A suitable manual center punch can also create the marks.
 
 This is why the project name uses `center-punch` rather than `automatic-center-punch`.
+
+## Adaptability
+
+The current dimensions, block geometry, and 12-word example are one reference implementation. The underlying idea can be adapted to different washer sizes, word counts, physical layouts, or punching tools, provided the resulting geometry and recovery rules are regenerated and independently verified.
 
 ## Design principle
 
