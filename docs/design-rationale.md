@@ -1,5 +1,7 @@
 # Design Rationale
 
+[日本語](design-rationale_ja.md)
+
 This document explains why the current reference format looks the way it does. The project is experimental, so these decisions may change after physical testing or review.
 
 ## Why washers?
