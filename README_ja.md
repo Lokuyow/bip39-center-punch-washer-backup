@@ -160,9 +160,9 @@ CHECKは**誤り訂正ではなく誤り検出**です。1数字だけが別の�
 
 ## ドキュメント
 
-- [詳細仕様](docs/specification.md)
-- [復元手順](docs/recovery.md)
-- [設計理由](docs/design-rationale.md)
+- [詳細仕様](docs/specification_ja.md)
+- [復元手順](docs/recovery_ja.md)
+- [設計理由](docs/design-rationale_ja.md)
 - [English README](README.md)
 
 ## 注意点
