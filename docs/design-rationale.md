@@ -46,25 +46,6 @@ The project renumbers the four physical candidate positions as `1 3 / 2 4` for d
 
 A numeric indicator is omitted because every digit field is explicitly numeric.
 
-## Why compact square-like digit cells?
-
-The old binary layout treated every radial column as an equal unit. In the current design, the meaningful visual unit is a decimal digit made from four candidate points.
-
-The candidate points are therefore grouped closely into a square-like cell so that one digit is perceived as one symbol, while neighboring digit cells remain visually separated.
-
-## Why eight blocks?
-
-The current reference face contains:
-
-- one combined START/SET block,
-- two order digits,
-- four BIP39-number digits,
-- one CHECK digit.
-
-This gives eight logical blocks around the washer.
-
-Combining START and SET removes a dedicated start-only block and leaves more visual separation between digit cells.
-
 ## Why combine START and SET?
 
 The start marker and set identifier are both metadata rather than mnemonic word content. A combined distinctive marker can provide both functions without consuming two separate regions.
@@ -99,18 +80,6 @@ Simple mod 10 was selected because:
 - the project already has other layers of validation, including valid digit shapes, the `0001`–`2048` range, the BIP39 checksum, and potentially an independent backup set.
 
 It is not mathematically strongest. Some multiple errors can cancel each other out. The choice is a tradeoff favoring long-term human readability and minimal dependency.
-
-## Why punch directly through paper?
-
-A previous workflow transferred candidate positions to the metal first and punched afterward. Direct punching through the full-scale paper jig proved simpler in practical testing.
-
-The reference workflow therefore uses the printed jig directly as the positioning guide.
-
-## Why a center punch rather than a specific tool?
-
-An automatic center punch is convenient and is the expected tool for many users, but the encoding format does not depend on the automatic mechanism. A suitable manual center punch can also create the marks.
-
-This is why the project name uses `center-punch` rather than `automatic-center-punch`.
 
 ## Adaptability
 
