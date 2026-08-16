@@ -1,4 +1,4 @@
-# Punch39
+# Washer Punch39
 
 **BIP39 Center-Punch Washer Backup**
 
@@ -6,7 +6,7 @@
 
 A DIY metal-backup method for a BIP39 English mnemonic using stainless-steel washers and a center punch.
 
-![Punch39 punching jig preview](images/punch39-jig-preview.png)
+![Washer Punch39 punching jig preview](images/washer-punch39-jig-preview.png)
 
 The design stores one mnemonic word per washer face as a human-readable decimal number encoded with four-point braille-style digits. A printable full-scale punching jig is used to position the punch marks.
 
