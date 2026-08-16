@@ -13,7 +13,6 @@ The design stores one mnemonic word per washer face as a human-readable decimal 
 ## Design goals
 
 - Use inexpensive, widely available stainless-steel washers.
-- Avoid manual 11-bit binary conversion during backup and recovery.
 - Keep recovery possible with printed reference material and no special software.
 - Preserve word order even if washers become separated.
 - Make the start position visually identifiable.
