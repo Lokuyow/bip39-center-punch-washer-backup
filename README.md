@@ -30,12 +30,14 @@ The printable reference material currently provided by this repository targets:
 - Outside diameter: **24.0 mm**
 - Inside diameter: **8.4 mm**
 - Thickness: **2.0 mm**
-- Both faces are used
-- 1 face = 1 mnemonic word
-- 1 washer = 2 mnemonic words
-- Reference example: 12-word mnemonic = 6 washers
+- 1 marked face = 1 mnemonic word
+- Reference assembly: **12-word mnemonic = 7 washers**
 
-These dimensions and the 12-word example are choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
+In the current 7-washer reference assembly, the first and seventh washers are punched on only one face. The five washers between them use both faces. When stacked on a bolt, the blank face of the first washer and the blank face of the seventh washer are placed outward. This hides the braille-style punch marks from direct outside view while the stack is assembled.
+
+This seven-washer arrangement is an optional physical implementation, not a requirement of the encoding method. A builder may choose another washer count or stacking arrangement.
+
+The washer dimensions and 12-word example are also choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
 
 ## Data stored on each face
 
@@ -141,7 +143,7 @@ The current workflow uses a full-scale paper jig and punches directly through th
 3. Align the jig with the washer specified by that jig.
 4. Punch only the candidate positions required by the data.
 5. Remove the jig and visually verify the result.
-6. Repeat on the opposite face if using both faces.
+6. Repeat on the opposite face when that washer is intended to carry a second word.
 
 The jig itself contains all candidate positions and therefore does not need to contain seed-specific secret data.
 
@@ -157,8 +159,10 @@ For the current reference layout:
 6. Decode the four-digit BIP39 word number.
 7. Decode CHECK and verify mod 10.
 8. Convert the 1-based number to the BIP39 English word.
-9. Arrange all faces by order.
+9. Arrange all marked faces by order.
 10. Independently verify the recovered mnemonic before using it.
+
+In the 7-washer reference assembly, the two outward-facing blank surfaces are intentional and do not represent missing words.
 
 ## Documentation
 
@@ -170,6 +174,7 @@ For the current reference layout:
 
 - This is a physical backup format, not encryption.
 - Anyone who can read all required washer faces can recover the mnemonic.
+- Blank outer faces only conceal punch marks from direct outside view; they are not a security boundary.
 - The mod-10 CHECK does not detect every possible multi-digit error.
 - SET and order are intentionally not covered by the per-face CHECK.
 - Printable dimensions must be independently verified before punching real backup material.
