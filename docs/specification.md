@@ -1,5 +1,7 @@
 # Specification
 
+[日本語](specification_ja.md)
+
 This document records the current reference format for BIP39 Center Punch Washer Backup.
 
 ## Scope
