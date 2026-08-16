@@ -1,4 +1,6 @@
-# BIP39 Center Punch Washer Backup
+# Punch39
+
+**BIP39 Center-Punch Washer Backup**
 
 A DIY metal-backup method for a BIP39 English mnemonic using stainless-steel washers and a center punch.
 
