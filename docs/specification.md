@@ -73,13 +73,6 @@ Reference candidate radii:
 - inner candidate-center radius: 7.2 mm
 - outer candidate-center radius: 9.2 mm
 
-Project-local point numbering:
-
-```text
-1   3   outside
-2   4   inside
-```
-
 The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
 
 ## Order field
