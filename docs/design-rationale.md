@@ -22,7 +22,7 @@ The current reference assembly intentionally uses seven washers instead:
 
 The unused faces of washers 1 and 7 are placed outward when the washers are stacked on a bolt. This means that, in the assembled state, no braille-style punch marks are directly visible from the outside of the stack.
 
-This is a physical presentation choice, not part of the encoding. Builders may use six washers, seven washers, or another arrangement that suits their storage method. The blank outer faces are not encryption and should not be treated as meaningful protection against someone who can handle or disassemble the backup.
+This is a physical presentation choice, not part of the encoding. The person making the backup may use six washers, seven washers, or another arrangement that suits the storage method. The blank outer faces are not encryption and should not be treated as meaningful protection against someone who can handle or disassemble the backup.
 
 ## Why decimal numbers instead of 11-bit binary?
 
