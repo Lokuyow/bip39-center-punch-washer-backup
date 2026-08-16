@@ -8,7 +8,21 @@ This document explains why the current reference format looks the way it does. T
 
 Stainless-steel washers are inexpensive, widely available, heat resistant compared with paper, and easy to stack on a bolt. Both faces can be used, allowing compact storage of mnemonic words.
 
-The current reference implementation uses large M8 washers and demonstrates a 12-word mnemonic on six washers, but neither M8 nor a 12-word mnemonic is a fundamental requirement of the method.
+The current reference implementation uses large M8 washers and demonstrates a 12-word mnemonic with a seven-washer assembly, but neither M8, 12 words, nor seven washers is a fundamental requirement of the method.
+
+## Why seven washers for 12 words?
+
+Twelve words require twelve marked faces, so they could be placed on six washers if every washer used both faces.
+
+The current reference assembly intentionally uses seven washers instead:
+
+- washer 1 carries one word on one face,
+- washers 2–6 carry two words each,
+- washer 7 carries one word on one face.
+
+The unused faces of washers 1 and 7 are placed outward when the washers are stacked on a bolt. This means that, in the assembled state, no braille-style punch marks are directly visible from the outside of the stack.
+
+This is a physical presentation choice, not part of the encoding. Builders may use six washers, seven washers, or another arrangement that suits their storage method. The blank outer faces are not encryption and should not be treated as meaningful protection against someone who can handle or disassemble the backup.
 
 ## Why decimal numbers instead of 11-bit binary?
 
@@ -100,7 +114,7 @@ This is why the project name uses `center-punch` rather than `automatic-center-p
 
 ## Adaptability
 
-The current dimensions, block geometry, and 12-word example are one reference implementation. The underlying idea can be adapted to different washer sizes, word counts, physical layouts, or punching tools, provided the resulting geometry and recovery rules are regenerated and independently verified.
+The current dimensions, block geometry, 12-word example, and seven-washer assembly are one reference implementation. The underlying idea can be adapted to different washer sizes, word counts, physical layouts, stacking arrangements, or punching tools, provided the resulting geometry and recovery rules are regenerated and independently verified where necessary.
 
 ## Design principle
 
