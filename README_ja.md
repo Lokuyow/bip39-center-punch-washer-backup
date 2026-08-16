@@ -4,6 +4,8 @@
 
 ステンレスワッシャーとセンターポンチを使って、BIP39 Englishニーモニックを金属へ記録するDIYバックアップ方式です。
 
+![Punch39 紙治具イメージ](images/punch39-jig-preview.png)
+
 1面に1単語を、BIP39単語番号の10進4桁と4点式の点字数字で記録します。実寸の紙治具をワッシャーへ重ね、その上からセンターポンチで直接打刻します。
 
 > **状態:** 実験中 / 開発中です。仕様・印刷寸法・打刻方法・復元手順を独立に検証するまでは、実資金の唯一のバックアップとして使用しないでください。
@@ -158,9 +160,9 @@ CHECKは**誤り訂正ではなく誤り検出**です。1数字だけが別の�
 
 ## PDF資料
 
-- [クイックリファレンス（A4 PDF）](pdf/bip39-washer-quick-reference-a4.pdf)
-- [紙治具 — M8 / A4 PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf)
-- [BIP39 English ワードリスト — 1始まり（A4 PDF）](pdf/bip39-english-wordlist-1based-a4.pdf)
+- [クイックリファレンス](pdf/bip39-washer-quick-reference-a4.pdf)
+- [紙治具](pdf/bip39-washer-punching-jig-m8-a4.pdf)
+- [BIP39 English ワードリスト（1始まり）](pdf/bip39-english-wordlist-1based-a4.pdf)
 
 ## ドキュメント
 
