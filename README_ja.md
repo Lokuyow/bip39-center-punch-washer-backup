@@ -1,10 +1,10 @@
-# Punch39
+# Washer Punch39
 
 **BIP39 Center-Punch Washer Backup**
 
 ステンレスワッシャーとセンターポンチを使って、BIP39 Englishニーモニックを金属へ記録するDIYバックアップ方式です。
 
-![Punch39 紙治具イメージ](images/punch39-jig-preview.png)
+![Washer Punch39 紙治具イメージ](images/washer-punch39-jig-preview.png)
 
 1面に1単語を、BIP39単語番号の10進4桁と4点式の点字数字で記録します。実寸の紙治具をワッシャーへ重ね、その上からセンターポンチで直接打刻します。
 
