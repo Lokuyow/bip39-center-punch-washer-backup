@@ -6,6 +6,8 @@
 
 A DIY metal-backup method for a BIP39 English mnemonic using stainless-steel washers and a center punch.
 
+![Punch39 punching jig preview](images/punch39-jig-preview.png)
+
 The design stores one mnemonic word per washer face as a human-readable decimal number encoded with four-point braille-style digits. A printable full-scale punching jig is used to position the punch marks.
 
 > **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
@@ -160,9 +162,9 @@ In the 7-washer reference assembly, the two outward-facing blank surfaces are in
 
 ## Printable PDFs
 
-- [Quick reference (A4 PDF)](pdf/bip39-washer-quick-reference-a4.pdf)
-- [Punching jig — M8 / A4 PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf)
-- [BIP39 English word list — 1-based (A4 PDF)](pdf/bip39-english-wordlist-1based-a4.pdf)
+- [Quick reference](pdf/bip39-washer-quick-reference-a4.pdf)
+- [Punching jig](pdf/bip39-washer-punching-jig-m8-a4.pdf)
+- [BIP39 English word list (1-based)](pdf/bip39-english-wordlist-1based-a4.pdf)
 
 ## Documentation
 
