@@ -31,7 +31,7 @@ This provides twelve marked faces in total.
 
 When the washers are stacked on a bolt, the blank faces of washers 1 and 7 are placed outward. In the assembled state, the braille-style punch marks are therefore not directly visible from the outside.
 
-This seven-washer arrangement is optional and is not part of the encoding requirement. A builder may use another physical arrangement. The blank outer faces provide visual concealment only and should not be treated as encryption or a security boundary.
+This seven-washer arrangement is optional and is not part of the encoding requirement. The person making the backup may use another physical arrangement. The blank outer faces provide visual concealment only and should not be treated as encryption or a security boundary.
 
 ## Face structure
 
