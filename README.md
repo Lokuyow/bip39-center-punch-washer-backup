@@ -82,15 +82,6 @@ This is intentionally different from the 0-based 11-bit index used internally by
 
 Digits use the shape of standard braille numerals, restricted to the upper four dots. No numeric indicator is stored because the field is defined to contain digits only.
 
-For this project the four candidate positions are numbered:
-
-```text
-1   3   outside
-2   4   inside
-```
-
-Only the numbering of the candidate points is project-specific; the shapes of digits 0–9 follow standard braille numerals.
-
 ## START/SET marker
 
 The start marker and set identifier share one compact symbol.
