@@ -15,9 +15,19 @@ Use the quick-reference sheet for:
 
 Do not rely on memory alone when recovering a real backup.
 
+## Reference seven-washer assembly
+
+The current 12-word reference assembly uses seven washers. The first and seventh washers are marked on only one face, while washers 2–6 are marked on both faces.
+
+When assembled on a bolt, the two intentionally blank faces are placed outward so that punch marks are not directly visible from the outside.
+
+During recovery, do not treat those two blank outer faces as missing data. The reference assembly contains twelve marked faces in total.
+
+The seven-washer arrangement is optional; another builder may have chosen a different physical arrangement.
+
 ## Read one washer face
 
-1. Turn the face you want to read toward you.
+1. Turn the marked face you want to read toward you.
 2. Find the START/SET marker: two fixed marks on the center radial line with the SET position between them.
 3. Determine the set:
    - right SET mark only = A
@@ -45,7 +55,7 @@ If CHECK fails:
 
 - inspect the dot patterns again,
 - check for corrosion, scratches, shallow punch marks, or false marks,
-- compare with the opposite face and other washers for contextual clues,
+- compare with the opposite marked face and other washers for contextual clues,
 - do not silently guess a replacement digit.
 
 CHECK is an error detector, not an error corrector.
@@ -65,7 +75,7 @@ The project numbering is 1-based and should not be confused with the 0-based imp
 
 ## Reconstruct all 12 words
 
-1. Read all washer faces.
+1. Read all marked washer faces.
 2. Sort them by order `01` through `12`.
 3. Convert every BIP39 number to its English word.
 4. Review the complete 12-word sequence.
@@ -75,10 +85,14 @@ Useful independent checks can include the BIP39 checksum and known non-secret wa
 
 ## Reverse face rule
 
-Each side is read independently.
+Each marked side is read independently.
 
-When reading the reverse face, turn that reverse face toward you and again read clockwise from its own START/SET marker. Do not mirror the layout mentally from the front face.
+When reading a marked reverse face, turn that face toward you and again read clockwise from its own START/SET marker. Do not mirror the layout mentally from the front face.
+
+In the seven-washer reference assembly, the two outer blank faces contain no encoded data.
 
 ## Security note
 
 The washers contain the mnemonic in encoded but not encrypted form. Anyone who can correctly read all required faces can recover the mnemonic.
+
+The blank outer faces only conceal the punch marks from direct outside view while the washers remain assembled. They are not a security boundary.
