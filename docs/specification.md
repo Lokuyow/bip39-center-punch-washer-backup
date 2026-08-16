@@ -15,13 +15,27 @@ The method itself is intended to be adaptable. The current reference implementat
 - 24.0 mm OD
 - 8.4 mm ID
 - 2.0 mm thickness
-- both faces used
+- 7 washers in the current 12-word reference assembly
 
-These choices define the printable reference material in this repository; they are not fundamental requirements of the underlying method. Different washer dimensions, word counts, layouts, or tooling require corresponding geometry and recovery rules to be regenerated and independently verified.
+These choices define the printable reference material and reference assembly in this repository; they are not fundamental requirements of the underlying method. Different washer dimensions, word counts, layouts, tooling, or stacking arrangements require corresponding geometry and recovery rules to be regenerated and independently verified where applicable.
+
+## Reference 12-word assembly
+
+The current reference assembly uses seven washers for twelve mnemonic words:
+
+- washer 1: one marked face, one blank face
+- washers 2–6: both faces marked
+- washer 7: one marked face, one blank face
+
+This provides twelve marked faces in total.
+
+When the washers are stacked on a bolt, the blank faces of washers 1 and 7 are placed outward. In the assembled state, the braille-style punch marks are therefore not directly visible from the outside.
+
+This seven-washer arrangement is optional and is not part of the encoding requirement. A builder may use another physical arrangement. The blank outer faces provide visual concealment only and should not be treated as encryption or a security boundary.
 
 ## Face structure
 
-Read each face from the START/SET marker clockwise.
+Read each marked face from the START/SET marker clockwise.
 
 ```text
 START/SET | order tens | order ones | BIP39 thousands | hundreds | tens | ones | CHECK
@@ -117,13 +131,15 @@ CHECK detects any single decimal-digit substitution but is not an error-correcti
 
 ## Reading direction
 
-For either side of a washer:
+For either marked side of a washer:
 
 1. turn that side toward the reader,
 2. locate START/SET,
 3. read clockwise.
 
 Do not interpret the reverse side as a mirrored continuation of the front side.
+
+A blank outer face in the seven-washer reference assembly contains no data and is intentionally left unpunched.
 
 ## Paper jig
 
