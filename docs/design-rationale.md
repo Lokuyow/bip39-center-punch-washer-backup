@@ -42,8 +42,6 @@ This is intended to be easier to read in printed human-facing lists. It is delib
 
 Standard braille numerals encode decimal digits using the upper four dots of the six-dot cell. Reusing those shapes provides a compact decimal representation with an existing visual convention.
 
-The project renumbers the four physical candidate positions as `1 3 / 2 4` for diagram simplicity, but does not change the shapes of the digits themselves.
-
 A numeric indicator is omitted because every digit field is explicitly numeric.
 
 ## Why combine START and SET?
