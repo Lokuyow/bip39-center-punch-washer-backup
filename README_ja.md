@@ -1,4 +1,6 @@
-# BIP39 Center Punch Washer Backup
+# Punch39
+
+**BIP39 Center-Punch Washer Backup**
 
 ステンレスワッシャーとセンターポンチを使って、BIP39 Englishニーモニックを金属へ記録するDIYバックアップ方式です。
 
