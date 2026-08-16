@@ -35,7 +35,7 @@ The printable reference material currently provided by this repository targets:
 
 In the current 7-washer reference assembly, the first and seventh washers are punched on only one face. The five washers between them use both faces. When stacked on a bolt, the blank face of the first washer and the blank face of the seventh washer are placed outward. This hides the braille-style punch marks from direct outside view while the stack is assembled.
 
-This seven-washer arrangement is an optional physical implementation, not a requirement of the encoding method. A builder may choose another washer count or stacking arrangement.
+This seven-washer arrangement is an optional physical implementation, not a requirement of the encoding method. The person making the backup may choose another washer count or stacking arrangement.
 
 The washer dimensions and 12-word example are also choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
 
