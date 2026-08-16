@@ -158,6 +158,12 @@ For the current reference layout:
 
 In the 7-washer reference assembly, the two outward-facing blank surfaces are intentional and do not represent missing words.
 
+## Printable PDFs
+
+- [Quick reference (A4 PDF)](pdf/bip39-washer-quick-reference-a4.pdf)
+- [Punching jig — M8 / A4 PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf)
+- [BIP39 English word list — 1-based (A4 PDF)](pdf/bip39-english-wordlist-1based-a4.pdf)
+
 ## Documentation
 
 - [Specification](docs/specification.md)
