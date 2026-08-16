@@ -82,6 +82,10 @@ This is intentionally different from the 0-based 11-bit index used internally by
 
 Digits use the shape of standard braille numerals, restricted to the upper four dots. No numeric indicator is stored because the field is defined to contain digits only.
 
+**● = punched / ○ = candidate position.** The upper row is toward the outside of the washer; the lower row is toward the inside.
+
+![Braille-style digits 0-9](images/braille-digits-0-9.svg)
+
 ## START/SET marker
 
 The start marker and set identifier share one compact symbol.
