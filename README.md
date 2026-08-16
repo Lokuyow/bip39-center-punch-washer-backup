@@ -162,8 +162,8 @@ In the 7-washer reference assembly, the two outward-facing blank surfaces are in
 
 ## Printable PDFs
 
-- [Quick reference](pdf/bip39-washer-quick-reference-a4.pdf)
-- [Punching jig](pdf/bip39-washer-punching-jig-m8-a4.pdf)
+- [Quick reference (Japanese)](pdf/bip39-washer-quick-reference-a4.pdf)
+- [Punching jig (Japanese)](pdf/bip39-washer-punching-jig-m8-a4.pdf)
 - [BIP39 English word list (1-based)](pdf/bip39-english-wordlist-1based-a4.pdf)
 
 ## Documentation
