@@ -75,6 +75,10 @@ Reference candidate radii:
 
 The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
 
+**● = punched / ○ = candidate position.** The upper row is toward the outside of the washer; the lower row is toward the inside.
+
+![Braille-style digits 0-9](../images/braille-digits-0-9.svg)
+
 ## Order field
 
 In the current 12-word reference implementation, the mnemonic position is encoded as two decimal digits:
