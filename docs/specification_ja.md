@@ -2,7 +2,7 @@
 
 [English](specification.md)
 
-この文書は、Punch39（BIP39 Center-Punch Washer Backup）の現在のリファレンス形式を記録するものです。
+この文書は、Washer Punch39（BIP39 Center-Punch Washer Backup）の現在のリファレンス形式を記録するものです。
 
 ## 対象範囲
 
