@@ -156,6 +156,12 @@ CHECKは**誤り訂正ではなく誤り検出**です。1数字だけが別の�
 
 7枚のリファレンス構成では、外側を向いた2つの無刻印面は意図的なものです。単語の欠落を意味しません。
 
+## PDF資料
+
+- [クイックリファレンス（A4 PDF）](pdf/bip39-washer-quick-reference-a4.pdf)
+- [紙治具 — M8 / A4 PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf)
+- [BIP39 English ワードリスト — 1始まり（A4 PDF）](pdf/bip39-english-wordlist-1based-a4.pdf)
+
 ## ドキュメント
 
 - [詳細仕様](docs/specification_ja.md)
