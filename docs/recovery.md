@@ -1,5 +1,7 @@
 # Recovery Guide
 
+[日本語](recovery_ja.md)
+
 This guide describes the current recovery procedure for the reference 12-word BIP39 English format.
 
 ## Before you begin
