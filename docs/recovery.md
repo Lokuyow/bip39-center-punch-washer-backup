@@ -23,7 +23,7 @@ When assembled on a bolt, the two intentionally blank faces are placed outward s
 
 During recovery, do not treat those two blank outer faces as missing data. The reference assembly contains twelve marked faces in total.
 
-The seven-washer arrangement is optional; another builder may have chosen a different physical arrangement.
+The seven-washer arrangement is optional; the person making the backup may have chosen a different physical arrangement.
 
 ## Read one washer face
 
