@@ -177,6 +177,7 @@ CHECKは**誤り訂正ではなく誤り検出**です。1数字だけが別の�
 ## ドキュメント
 
 - [実物例](docs/physical-example_ja.md)
+- [加熱・急冷試験（補足資料）](docs/fire-test_ja.md)
 - [詳細仕様](docs/specification_ja.md)
 - [復元手順](docs/recovery_ja.md)
 - [設計理由](docs/design-rationale_ja.md)
