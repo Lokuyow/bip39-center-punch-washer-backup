@@ -77,7 +77,7 @@ Current standard:
 - B = left candidate
 - both / neither = reserved or invalid by default
 
-SET is intentionally treated as secondary metadata. Physical grouping on a bolt and operational choices such as storing set A and set B at different locations can provide additional context for set identification.
+SET is **secondary metadata used to distinguish different mnemonics when more than one mnemonic is stored**. A/B does not represent shares of one mnemonic or a 2-of-2 scheme. All faces belonging to one mnemonic use the same SET value, and SET can be used to group mixed washers during recovery.
 
 ## Why are SET and order not protected by CHECK?
 
@@ -85,7 +85,7 @@ CHECK is intended to let a person verify the core per-face payload, the BIP39 wo
 
 SET and order have other consistency checks outside the per-face CHECK. For example:
 
-- within one set, SET should normally be consistently A or consistently B,
+- within one mnemonic, SET should normally be consistently A or consistently B,
 - a complete 12-word set should contain each order value `01` through `12` exactly once,
 - when the washers remain assembled on a bolt, physical order can provide another clue.
 
