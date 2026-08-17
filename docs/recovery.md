@@ -2,9 +2,11 @@
 
 [日本語](recovery_ja.md)
 
-This guide describes the current recovery procedure for the reference 12-word BIP39 English format.
+This guide describes the current recovery procedure for the **Washer Punch39 format v1** reference 12-word BIP39 English format.
 
 ## Before you begin
+
+Confirm that the backup uses **Washer Punch39 v1**, and use the v1 quick reference, specification, and word list.
 
 Use the quick-reference sheet for:
 
@@ -24,6 +26,12 @@ When assembled on a bolt, the two intentionally blank faces are placed outward s
 During recovery, do not treat those two blank outer faces as missing data. The reference assembly contains twelve marked faces in total.
 
 The seven-washer arrangement is optional; the person making the backup may have chosen a different physical arrangement.
+
+## SET A / B
+
+SET A / B is an **identifier used to distinguish different mnemonics when more than one mnemonic is stored**. It is not a scheme for splitting one mnemonic into A and B.
+
+All faces belonging to one mnemonic use the same SET value. If multiple mnemonics are mixed together, group faces by SET before reconstructing the order within each SET.
 
 ## Read one washer face
 
@@ -76,12 +84,19 @@ The project numbering is 1-based and should not be confused with the 0-based imp
 ## Reconstruct all 12 words
 
 1. Read all marked washer faces.
-2. Sort them by order `01` through `12`.
-3. Convert every BIP39 number to its English word.
-4. Review the complete 12-word sequence.
-5. Independently validate the recovered mnemonic before moving funds or relying on it.
+2. If multiple SET values are present, separate the faces by SET.
+3. Within each SET, sort the faces by order `01` through `12`.
+4. Convert every BIP39 number to its English word.
+5. Review the complete 12-word sequence.
+6. Independently validate the recovered mnemonic before moving funds or relying on it.
 
-Useful independent checks can include the BIP39 checksum and known non-secret wallet information such as an expected wallet fingerprint or previously recorded receive address.
+Useful independent checks can include the BIP39 checksum and, **when all wallet conditions including any required BIP39 passphrase are known**, expected wallet information such as a wallet fingerprint or previously recorded receive address.
+
+## BIP39 passphrase
+
+Washer Punch39 format v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not stored on the washers.
+
+Recovering a wallet that used a passphrase therefore also requires that passphrase from a separate backup. A correct mnemonic combined with a different passphrase derives a different wallet.
 
 ## Reverse face rule
 
