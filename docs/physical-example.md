@@ -37,10 +37,10 @@ A | 03 | 1391 | 6
 
 The CHECK is valid because `1 + 3 + 9 + 1 + 6 = 20`, which is a multiple of 10.
 
-## 4. Assembled with bolt and nut
+## 4. Assembled with bolt and double nut
 
-![Washer Punch39 washer stack assembled with a bolt and nut](../images/photos/washer-punch39-assembled-stack.jpg)
+![Washer Punch39 washer stack assembled with a bolt and double nut](../images/photos/washer-punch39-assembled-stack.jpg)
 
-The reference implementation can be stacked on a bolt and secured with a nut for storage.
+In the current reference implementation, the washers are stacked on a bolt and secured with **two nuts tightened against each other as a double-nut arrangement** to reduce the chance of loosening during storage.
 
 For dimensions, encoding rules, and recovery instructions, see the main [README](../README.md) and the other documents in this directory.
