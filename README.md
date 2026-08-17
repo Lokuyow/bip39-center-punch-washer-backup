@@ -6,15 +6,17 @@
 
 A DIY metal-backup method for a [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) English mnemonic using stainless-steel washers and a center punch.
 
+**Format version: v1**
+
 <p align="center">
   <img src="images/washer-punch39-jig-preview.png" alt="Washer Punch39 punching jig preview" height="220">
   <img src="images/photos/washer-punch39-punched-washer.jpg" alt="Punched Washer Punch39 washer" height="220">
-  <img src="images/photos/washer-punch39-assembled-stack.jpg" alt="Washer Punch39 assembled washer stack" height="220">
+  <img src="images/photos/washer-punch39-assembled-stack.jpg" alt="Washer Punch39 washer stack secured with a double nut" height="220">
 </p>
 
 The design stores one mnemonic word per washer face as a human-readable decimal number encoded with four-point braille-style digits. A printable full-scale punching jig is used to position the punch marks.
 
-> **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
+> **Status:** Experimental / work in progress. v1 identifies the current encoding, geometry, and recovery rules. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
 
 ## Design goals
 
@@ -102,6 +104,8 @@ The Unicode braille characters above are a text representation of the punch patt
 
 The start marker and set identifier share one compact symbol.
 
+**SET A / B is an identifier used to distinguish different mnemonics when more than one mnemonic is stored.** It is not a scheme for splitting one mnemonic into A and B; all faces belonging to one mnemonic use the same SET value.
+
 Two fixed marks are always present on the center radial line:
 
 - outer fixed point: **r = 10.0 mm**
@@ -165,7 +169,7 @@ For the current reference layout:
 6. Decode the four-digit BIP39 word number.
 7. Decode CHECK and verify mod 10.
 8. Convert the 1-based number to the BIP39 English word.
-9. Arrange all marked faces by order.
+9. If multiple mnemonics are present, group faces by SET first, then sort each SET by order.
 10. Independently verify the recovered mnemonic before using it.
 
 In the 7-washer reference assembly, the two outward-facing blank surfaces are intentional and do not represent missing words.
@@ -188,6 +192,7 @@ In the 7-washer reference assembly, the two outward-facing blank surfaces are in
 
 - This is a physical backup format, not encryption.
 - Anyone who can read all required washer faces can recover the mnemonic.
+- **Washer Punch39 v1 stores the BIP39 mnemonic only. If you use a BIP39 passphrase, back up that passphrase separately.**
 - Blank outer faces only conceal punch marks from direct outside view; they are not a security boundary.
 - The mod-10 CHECK does not detect every possible multi-digit error.
 - SET and order are intentionally not covered by the per-face CHECK.
