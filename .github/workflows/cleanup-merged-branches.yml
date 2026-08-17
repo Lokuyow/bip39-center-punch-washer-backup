@@ -18,31 +18,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Delete merged branches
+      - name: Delete branches already merged into main
         shell: bash
         run: |
           set -euo pipefail
           git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
 
-          # These historical branch tips belong to PRs #6, #8, #9, and #10,
-          # all of which are already merged. Later documentation work on main
-          # supersedes their remaining branch-only commits.
-          stale_branches=(
-            'docs/add-physical-example-photos'
-            'docs/align-readme-image-heights'
-            'docs/refine-physical-example'
-            'docs/use-photo-directory-and-link-example'
-          )
-
-          for branch in "${stale_branches[@]}"; do
-            if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
-              echo "Deleting verified stale branch: $branch"
-              git push origin --delete "$branch"
-            fi
-          done
-
-          # Also remove any ordinary branch whose current tip is fully merged.
-          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
           while IFS= read -r ref; do
             branch="${ref#origin/}"
 
