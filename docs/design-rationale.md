@@ -10,6 +10,14 @@ Stainless-steel washers are inexpensive, widely available, heat resistant compar
 
 The current reference implementation uses large M8 washers and demonstrates a 12-word mnemonic with a seven-washer assembly, but neither M8, 12 words, nor seven washers is a fundamental requirement of the method.
 
+## Why a 24 mm large M8 washer?
+
+The current reference implementation uses a DIN 9021-style M8 flat washer with a 24.0 mm outside diameter and 8.4 mm inside diameter.
+
+This size is a reference choice intended to provide a relatively wide annular face for the current eight-block layout and four-point candidate cells while still using inexpensive, commonly available hardware.
+
+The dimensions are not an encoding requirement. A different washer size requires the candidate-point spacing, paper jig, ease of punching, and recovery readability to be verified again.
+
 ## Why seven washers for 12 words?
 
 Twelve words require twelve marked faces, so they could be placed on six washers if every washer used both faces.
@@ -30,7 +38,20 @@ A BIP39 English word can be represented internally by an 11-bit index. An earlie
 
 The current design instead records a four-digit decimal word number. This removes the need for a human to convert between an English word, an 11-bit value, and punch positions during normal backup and recovery.
 
-The tradeoff is that the decimal representation is project-specific and requires a numbered word list.
+The tradeoff is that the project uses its own **1-based four-digit decimal convention, `0001` through `2048`**, so a numbered word list is required.
+
+## Why numbers instead of the first four letters?
+
+The BIP39 English word list is designed so that the first four letters uniquely identify each word. Recording those four letters directly is therefore a reasonable metal-backup approach.
+
+Washer Punch39 uses decimal numbers instead. The main reasons are:
+
+- punching only needs ten digit symbols, 0–9,
+- the same four-point cell can encode order, BIP39 word number, and CHECK,
+- alphabet letter punches or different geometric shapes for letters are unnecessary,
+- a paper jig and center punch can record everything with one consistent geometry.
+
+The tradeoff is that converting the number back to a word requires a numbered BIP39 English word list. This makes the format less self-describing than a first-four-letters backup.
 
 ## Why 1-based word numbering?
 
@@ -56,15 +77,21 @@ Current standard:
 - B = left candidate
 - both / neither = reserved or invalid by default
 
-SET is intentionally treated as secondary metadata. Physical grouping on a bolt, two-sided recording, and potentially separate storage locations already provide additional context for identifying sets.
+SET is intentionally treated as secondary metadata. Physical grouping on a bolt and operational choices such as storing set A and set B at different locations can provide additional context for set identification.
 
-## Why is SET not protected by CHECK?
+## Why are SET and order not protected by CHECK?
 
-The CHECK is intended primarily to protect the least redundant per-face information: the BIP39 word number.
+CHECK is intended to let a person verify the core per-face payload, the BIP39 word number, with a simple hand calculation.
 
-SET has other physical/contextual redundancy, including grouping washers on a bolt and potentially storing different sets separately. The order field can also have physical redundancy from washer order and the relationship between the two faces of one washer.
+SET and order have other consistency checks outside the per-face CHECK. For example:
 
-Keeping CHECK limited to the BIP39 number also makes its purpose and hand calculation simple.
+- within one set, SET should normally be consistently A or consistently B,
+- a complete 12-word set should contain each order value `01` through `12` exactly once,
+- when the washers remain assembled on a bolt, physical order can provide another clue.
+
+These checks are not complete error detection. For example, swapping the order values on two washers can still leave a complete `01`–`12` set. Excluding SET and order from CHECK is therefore a tradeoff between simplicity and detection strength.
+
+Limiting CHECK to the BIP39 number keeps both its purpose and its calculation simple.
 
 ## Why simple mod 10?
 
@@ -74,16 +101,34 @@ Simple mod 10 was selected because:
 
 - it can be calculated and verified with basic addition,
 - no lookup table or software is required,
-- any single decimal-digit substitution changes the check,
-- the project already has other layers of validation, including valid digit shapes, the `0001`–`2048` range, the BIP39 checksum, and potentially an independent backup set.
+- it detects a single decimal-digit substitution affecting one of the four BIP39 digits or the CHECK digit,
+- other validation layers can also be used, including valid digit shapes, the `0001`–`2048` range, the BIP39 checksum, and an independent backup set.
 
-It is not mathematically strongest. Some multiple errors can cancel each other out. The choice is a tradeoff favoring long-term human readability and minimal dependency.
+However, simple mod 10 gives no positional weight to the digits, so **it cannot detect transpositions**. For example, `1391` and `1931` both have a digit sum of 14 and therefore use the same CHECK. Multiple digit changes can also cancel each other out.
+
+The BIP39 checksum is another useful validation layer, but it does not prove that a recovered mnemonic is identical to the original. In the current 12-word reference case, the BIP39 checksum is only 4 bits, so an incorrect word sequence can still be checksum-valid.
+
+CHECK, range validation, and the BIP39 checksum should therefore be treated as **layers of validation**, not as standalone guarantees of correctness. Where possible, recovery should also be checked against other known information such as a wallet fingerprint, a previously recorded receive address, or an independent backup.
+
+Simple mod 10 is not mathematically strongest. The choice is a tradeoff favoring long-term human readability and minimal dependency during recovery.
+
+## Why punch directly through the paper jig?
+
+The current reference workflow aligns and secures the paper jig to the washer, then punches directly through the paper with a center punch.
+
+Compared with first transferring the candidate positions to the washer with a pen and then punching them, direct punching:
+
+- removes a work step,
+- reduces position drift and transcription mistakes while copying marks,
+- allows the same jig containing all candidate positions to be used directly.
+
+The paper jig does not print seed-specific selections. Holes and punch marks created during use reflect work history, but because the jig contains every candidate position, repeated use adds more holes and weakens the correspondence between the used jig and any one secret backup.
 
 ## Adaptability
 
 The current dimensions, block geometry, 12-word example, and seven-washer assembly are one reference implementation. The underlying idea can be adapted to different washer sizes, word counts, physical layouts, stacking arrangements, or punching tools, provided the resulting geometry and recovery rules are regenerated and independently verified where necessary.
 
-## Design principle
+## Design principles
 
 The project prioritizes:
 
@@ -91,5 +136,5 @@ The project prioritizes:
 2. simple and inspectable rules,
 3. physical readability,
 4. low-cost common materials,
-5. error detection appropriate to the expected physical failure modes,
+5. making expected physical damage or reading errors easier to detect,
 6. minimizing dependence on software during recovery.
