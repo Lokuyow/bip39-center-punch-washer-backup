@@ -179,6 +179,7 @@ In the 7-washer reference assembly, the two outward-facing blank surfaces are in
 ## Documentation
 
 - [Physical example](docs/physical-example.md)
+- [Heat and quench test (supplemental)](docs/fire-test.md)
 - [Specification](docs/specification.md)
 - [Recovery guide](docs/recovery.md)
 - [Design rationale](docs/design-rationale.md)
