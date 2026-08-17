@@ -4,7 +4,7 @@
 
 [日本語版 README](README_ja.md)
 
-A DIY metal-backup method for a BIP39 English mnemonic using stainless-steel washers and a center punch.
+A DIY metal-backup method for a [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) English mnemonic using stainless-steel washers and a center punch.
 
 <p align="center">
   <img src="images/washer-punch39-jig-preview.png" alt="Washer Punch39 punching jig preview" height="220">
@@ -91,6 +91,15 @@ Digits use the shape of standard braille numerals, restricted to the upper four 
 **● = punched / ○ = candidate position.** The upper row is toward the outside of the washer; the lower row is toward the inside.
 
 ![Braille-style digits 0-9](images/braille-digits-0-9.svg)
+
+The same digit shapes can also be represented with Unicode braille characters:
+
+```text
+0 1 2 3 4 5 6 7 8 9
+⠚ ⠁ ⠃ ⠉ ⠙ ⠑ ⠋ ⠛ ⠓ ⠊
+```
+
+The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is still omitted.
 
 ## START/SET marker
 

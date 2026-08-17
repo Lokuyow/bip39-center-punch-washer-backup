@@ -2,7 +2,7 @@
 
 **BIP39 Center-Punch Washer Backup**
 
-ステンレスワッシャーとセンターポンチを使って、BIP39 Englishニーモニックを金属へ記録するDIYバックアップ方式です。
+ステンレスワッシャーとセンターポンチを使って、[BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) Englishニーモニックを金属へ記録するDIYバックアップ方式です。
 
 <p align="center">
   <img src="images/washer-punch39-jig-preview.png" alt="Washer Punch39 紙治具イメージ" height="220">
@@ -93,6 +93,15 @@ BIP39内部で使われる0始まり11bit indexとは異なる、人間向けの
 **● = 打刻あり / ○ = 候補位置**。上段はワッシャーの外側、下段は内側です。
 
 ![点字数字0-9](images/braille-digits-0-9.svg)
+
+同じ点字数字はUnicode点字でも次のように表せます。
+
+```text
+0 1 2 3 4 5 6 7 8 9
+⠚ ⠁ ⠃ ⠉ ⠙ ⠑ ⠋ ⠛ ⠓ ⠊
+```
+
+上のUnicode点字は、ワッシャー上の打刻パターンをテキストで表すための補助表記です。数符は同様に省略しています。
 
 ## 開始兼SET
 
