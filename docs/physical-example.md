@@ -18,17 +18,16 @@ This is the state **immediately after the required candidate positions were punc
 
 ![Punched Washer Punch39 washer after removing the paper jig](../images/photos/washer-punch39-punched-washer.jpg)
 
-After the jig is removed, visually inspect the punched marks on the washer face. The face shown in this photo decodes as:
+After removing the paper jig, check the punched positions on the washer face.
 
 ```text
-A | 03 | 1391 (punch) | 6
+A | ⠚ ⠉ | ⠁ ⠉ ⠊ ⠁ | ⠋
 ```
 
-The digit fields can also be represented with Unicode braille characters. These characters are only a text aid for showing the same four-point digit shapes used on the washer.
+Decoded, this gives:
 
 ```text
-A | ⠚⠉ | ⠁⠉⠊⠁ | ⠋
-    03     1391       6
+A | 03 | 1391 | 6
 ```
 
 - SET: **A**
