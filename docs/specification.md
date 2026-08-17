@@ -31,6 +31,8 @@ This provides twelve marked faces in total.
 
 When the washers are stacked on a bolt, the blank faces of washers 1 and 7 are placed outward. In the assembled state, the braille-style punch marks are therefore not directly visible from the outside.
 
+After assembly, the stack is secured with **two nuts tightened against each other as a double-nut arrangement** to reduce loosening during storage.
+
 This seven-washer arrangement is optional and is not part of the encoding requirement. The person making the backup may use another physical arrangement. The blank outer faces provide visual concealment only and should not be treated as encryption or a security boundary.
 
 ## Face structure
@@ -75,17 +77,13 @@ Reference candidate radii:
 
 The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
 
-**● = punched / ○ = candidate position.** The upper row is toward the outside of the washer; the lower row is toward the inside.
-
-![Braille-style digits 0-9](../images/braille-digits-0-9.svg)
-
-The same digit shapes can also be represented with Unicode braille characters:
+The same digit shapes can be represented with Unicode braille characters:
 
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | ⠚ | ⠁ | ⠃ | ⠉ | ⠙ | ⠑ | ⠋ | ⠛ | ⠓ | ⠊ |
 
-The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is still omitted.
+The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is omitted.
 
 ## Order field
 

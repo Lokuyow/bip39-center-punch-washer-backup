@@ -40,6 +40,8 @@ The printable reference material currently provided by this repository targets:
 
 In the current 7-washer reference assembly, the first and seventh washers are punched on only one face. The five washers between them use both faces. When stacked on a bolt, the blank face of the first washer and the blank face of the seventh washer are placed outward. This hides the braille-style punch marks from direct outside view while the stack is assembled.
 
+After assembly, the stack is secured with **two nuts tightened against each other as a double-nut arrangement** to reduce the chance of loosening during storage.
+
 This seven-washer arrangement is an optional physical implementation, not a requirement of the encoding method. The person making the backup may choose another washer count or stacking arrangement.
 
 The washer dimensions and 12-word example are also choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
@@ -88,17 +90,13 @@ This is intentionally different from the 0-based 11-bit index used internally by
 
 Digits use the shape of standard braille numerals, restricted to the upper four dots. No numeric indicator is stored because the field is defined to contain digits only.
 
-**● = punched / ○ = candidate position.** The upper row is toward the outside of the washer; the lower row is toward the inside.
-
-![Braille-style digits 0-9](images/braille-digits-0-9.svg)
-
-The same digit shapes can also be represented with Unicode braille characters:
+The same digit shapes can be represented with Unicode braille characters:
 
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | ⠚ | ⠁ | ⠃ | ⠉ | ⠙ | ⠑ | ⠋ | ⠛ | ⠓ | ⠊ |
 
-The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is still omitted.
+The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is omitted.
 
 ## START/SET marker
 
