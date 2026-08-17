@@ -1,26 +1,44 @@
 # Physical example
 
-This page shows a physical Washer Punch39 workflow from securing the paper jig to the washer through punching and final assembly.
+This page shows a physical Washer Punch39 workflow from aligning and securing the paper jig to punching and final assembly. The photos are arranged in workflow order.
 
-## 1. Paper jig after punching
+## 1. Jig aligned and secured to the washer
+
+![Washer Punch39 jig aligned and secured to a washer with masking tape](../images/photos/washer-punch39-jig-alignment.jpg)
+
+Print the full-scale jig at **100% / actual size / no scaling** and verify the printed scale. Align the washer with the paper jig, then secure it with masking tape so it does not shift during punching.
+
+## 2. After punching through the paper jig
 
 ![Washer Punch39 paper jig taped to a washer after punching](../images/photos/washer-punch39-jig-after-punching.jpg)
 
-This photo shows the printed full-scale paper jig taped to the washer with masking tape **after** the required candidate positions were punched through the paper with an automatic center punch. The visible holes and punch marks in the paper are therefore the result of the punching step; this is not a photo of an untouched freshly printed jig.
+This is the state **immediately after the required candidate positions were punched through the paper with an automatic center punch**. The visible holes and punch marks in the paper were made by the punching step.
 
-## 2. Jig secured to the washer
+## 3. Washer after removing the paper jig
 
-![Washer Punch39 jig aligned on a washer](../images/photos/washer-punch39-jig-alignment.jpg)
+![Punched Washer Punch39 washer after removing the paper jig](../images/photos/washer-punch39-punched-washer.jpg)
 
-The washer is held against the aligned paper jig with masking tape so that the jig does not shift while the required candidate positions are punched through the paper.
+After the jig is removed, visually inspect the punched marks on the washer face. The face shown in this photo decodes as:
 
-## 3. Punched washer
+```text
+A | 03 | 1391 (punch) | 6
+```
 
-![Punched Washer Punch39 washer](../images/photos/washer-punch39-punched-washer.jpg)
+The digit fields can also be represented with Unicode braille characters. These characters are only a text aid for showing the same four-point digit shapes used on the washer.
 
-After the jig is removed, the punched marks can be visually inspected on the washer face.
+```text
+A | ⠚⠉ | ⠁⠉⠊⠁ | ⠋
+    03     1391       6
+```
 
-## 4. Assembled stack
+- SET: **A**
+- order: **03**
+- BIP39 word number: **1391 = punch**
+- CHECK: **6**
+
+The CHECK is valid because `1 + 3 + 9 + 1 + 6 = 20`, which is a multiple of 10.
+
+## 4. Assembled with bolt and nut
 
 ![Washer Punch39 washer stack assembled with a bolt and nut](../images/photos/washer-punch39-assembled-stack.jpg)
 
