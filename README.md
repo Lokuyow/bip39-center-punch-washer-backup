@@ -94,10 +94,9 @@ Digits use the shape of standard braille numerals, restricted to the upper four 
 
 The same digit shapes can also be represented with Unicode braille characters:
 
-```text
-0 1 2 3 4 5 6 7 8 9
-⠚ ⠁ ⠃ ⠉ ⠙ ⠑ ⠋ ⠛ ⠓ ⠊
-```
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| ⠚ | ⠁ | ⠃ | ⠉ | ⠙ | ⠑ | ⠋ | ⠛ | ⠓ | ⠊ |
 
 The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is still omitted.
 
