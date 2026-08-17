@@ -79,6 +79,15 @@ The dot shapes for decimal digits 0–9 are those of standard braille numerals u
 
 ![Braille-style digits 0-9](../images/braille-digits-0-9.svg)
 
+The same digit shapes can also be represented with Unicode braille characters:
+
+```text
+0 1 2 3 4 5 6 7 8 9
+⠚ ⠁ ⠃ ⠉ ⠙ ⠑ ⠋ ⠛ ⠓ ⠊
+```
+
+The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is still omitted.
+
 ## Order field
 
 In the current 12-word reference implementation, the mnemonic position is encoded as two decimal digits:
