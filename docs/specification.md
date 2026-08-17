@@ -4,6 +4,14 @@
 
 This document records the current reference format for Washer Punch39 (BIP39 Center-Punch Washer Backup).
 
+## Format version
+
+The current encoding, geometry, and recovery rules are designated **Washer Punch39 format v1**.
+
+If a future change alters how existing washers must be interpreted, that incompatible change should use a new format version.
+
+The v1 identifier itself is not encoded on each washer face. For long-term storage, keep the non-secret format identifier `Washer Punch39 v1` with the backup documentation.
+
 ## Scope
 
 The method itself is intended to be adaptable. The current reference implementation uses:
@@ -45,6 +53,23 @@ START/SET | order tens | order ones | BIP39 thousands | hundreds | tens | ones |
 
 There are eight logical blocks in the current reference layout.
 
+## Angular reference and block layout
+
+With the marked face viewed straight on, define the **center radial line of START/SET as 0°**. Angles increase **clockwise**.
+
+The logical block center angles are:
+
+| Center angle | Field |
+| :-: | --- |
+| 0° | START/SET |
+| 45° | order tens |
+| 90° | order ones |
+| 135° | BIP39 thousands |
+| 180° | BIP39 hundreds |
+| 225° | BIP39 tens |
+| 270° | BIP39 ones |
+| 315° | CHECK |
+
 ## START/SET geometry
 
 The START/SET marker occupies the 0° block in the current reference layout.
@@ -59,6 +84,8 @@ SET candidates:
 - left: radius 8.4 mm, angle -10° / 350°
 - right: radius 8.4 mm, angle +10°
 
+**SET A / B is an identifier used to distinguish different mnemonics when more than one mnemonic is stored.** It does not split one mnemonic into A and B; all faces belonging to one mnemonic use the same SET value.
+
 Standard assignments:
 
 - A = right SET candidate marked
@@ -70,12 +97,16 @@ Standard assignments:
 
 Each decimal digit is represented by four candidate points arranged as a compact square-like cell on the washer.
 
-Reference candidate radii:
+For a digit block whose center angle is `θ`, the four candidate points are:
 
-- inner candidate-center radius: 7.2 mm
-- outer candidate-center radius: 9.2 mm
+- outer, counterclockwise side: radius **9.2 mm**, angle **θ - 7°**
+- outer, clockwise side: radius **9.2 mm**, angle **θ + 7°**
+- inner, counterclockwise side: radius **7.2 mm**, angle **θ - 7°**
+- inner, clockwise side: radius **7.2 mm**, angle **θ + 7°**
 
 The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
+
+When mapping a Unicode braille digit onto the washer cell, orient the **top row toward the outside of the washer, the bottom row toward the inside, the left column toward the counterclockwise side, and the right column toward the clockwise side**.
 
 The same digit shapes can be represented with Unicode braille characters:
 
@@ -159,6 +190,10 @@ The jig contains all candidate points, not secret-specific selections.
 
 The current reference workflow punches directly through the paper jig with a center punch. An automatic center punch is convenient, but the data format does not require an automatic mechanism.
 
+## BIP39 passphrase
+
+Washer Punch39 format v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not part of this format. If a passphrase is used, it must be backed up separately.
+
 ## Status
 
-This specification is still experimental. Physical testing, dimensional verification, and independent review are expected before treating it as stable.
+v1 identifies the current format, but the project itself remains experimental. Physical testing, dimensional verification, and independent review are still ongoing.
