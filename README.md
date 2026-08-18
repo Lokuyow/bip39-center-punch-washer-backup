@@ -6,7 +6,7 @@
 
 A DIY metal-backup method for a [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) English mnemonic using stainless-steel washers and a center punch.
 
-**Format version: v1**
+**Format: draft v1**
 
 <p align="center">
   <img src="images/washer-punch39-jig-preview.png" alt="Washer Punch39 punching jig preview" height="220">
@@ -16,7 +16,7 @@ A DIY metal-backup method for a [BIP39](https://github.com/bitcoin/bips/blob/mas
 
 Each marked washer face stores one mnemonic word as a four-digit decimal BIP39 word number encoded with four-point braille-style digits. A printable full-scale paper jig positions the punch marks.
 
-> **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
+> **Status:** Experimental / work in progress. draft v1 is not final and may receive incompatible changes before v1 is finalized. Do not use this as the only backup of real funds.
 
 ## Advantages compared with other approaches
 
@@ -39,7 +39,7 @@ Read each marked face **clockwise from the START/SET marker**:
 START/SET | order (2 digits) | BIP39 word number (4 digits) | CHECK
 ```
 
-- **SET** — identifies different mnemonics when more than one is stored; standard use is A=right, B=left
+- **SET** — identifies different mnemonics when more than one is stored. A=right and B=left. Published examples use A, but the maker may choose either
 - **Order** — `01` through `12` in the current 12-word reference implementation
 - **BIP39 word number** — the BIP39 English list numbered from `0001` through `2048`
 - **CHECK** — simple mod 10 calculated from the four BIP39 digits only
@@ -63,6 +63,8 @@ The printable reference material in this repository targets:
 - **12-word mnemonic = 7 washers**
 
 In the seven-washer reference assembly, the blank faces of the first and seventh washers are placed outward so punch marks are not directly visible while assembled. The stack is secured on a bolt with a **double-nut arrangement**.
+
+The published reference implementation covers 12 words only. The format itself can also represent a 24-word mnemonic.
 
 The seven-washer arrangement and washer dimensions are part of the current reference implementation, not requirements of the underlying encoding method.
 
@@ -107,7 +109,7 @@ See the [recovery guide](docs/recovery.md) for the recovery procedure.
 ## Important limitations
 
 - This is a physical backup format, not encryption. Anyone who can read all required washer faces can recover the mnemonic.
-- **Washer Punch39 v1 stores the BIP39 mnemonic only.** If you use a BIP39 passphrase, back it up separately.
+- **Washer Punch39 draft v1 stores the BIP39 mnemonic only.** If you use a BIP39 passphrase, back it up separately.
 - The mod-10 CHECK is for error detection, not error correction, and does not detect every possible multi-digit error.
 - SET and order are intentionally excluded from the per-face CHECK.
 - Verify the printed scale and punching/recovery procedure before creating a real backup.
