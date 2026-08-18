@@ -61,6 +61,23 @@ In the seven-washer reference assembly, the blank faces of the first and seventh
 
 The seven-washer arrangement and washer dimensions are part of the current reference implementation, not requirements of the underlying encoding method.
 
+## Improvements over the earlier electro-etching design
+
+Washer Punch39 evolves an earlier washer-based DIY metal wallet published by the author in 2022. The following reference articles are in Japanese:
+
+- [激安！DIYメタルウォレット【電解エッチング】](https://spotlight.soy/detail?article_id=9hbcxftqd) (Japanese)
+- [検証！DIYメタルウォレット【火あぶりの刑】](https://spotlight.soy/detail?article_id=ojr7i5w1k) (Japanese)
+
+Main improvements:
+
+- **Faster construction** — Electro-etching requires masking, handwriting, drying, etching, and cleanup; the author's 24-word build took about four hours. Washer Punch39 instead uses center-punch marks through a paper jig.
+- **Less fine manual work** — Scratching handwritten letters through the masking layer requires dexterity. The current method only requires punching defined candidate positions.
+- **Simpler tools and cleanup** — The workflow no longer needs batteries, alligator clips, etching solution, nail polish, or nail-polish remover.
+- **More explicit encoding** — Instead of writing English words directly, Washer Punch39 records BIP39 word numbers with braille-style digits and defines SET, order, and CHECK as part of a fixed format.
+- **Easier disposal** — Electro-etched text is cumbersome to make reliably unreadable. With Washer Punch39, the information is the presence or absence of candidate marks, so random extra punch marks near those positions can destroy the original pattern. No jig or precise alignment is required for disposal.
+- **Double nut instead of a spring washer** — The earlier design used a spring washer, but its spring action was largely lost after the heat test. The current reference assembly uses two nuts tightened against each other.
+- **Seven washers instead of eight for 12 words** — The earlier arrangement used six data washers plus blank washers on the front and back. The current arrangement makes the first and last washers single-sided and places their blank faces outward, reducing the total to seven washers.
+
 ## Punching workflow
 
 1. Print the [punching-jig PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf) at **100% / actual size / no scaling**.
