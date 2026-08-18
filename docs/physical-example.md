@@ -2,6 +2,8 @@
 
 This page shows a physical Washer Punch39 workflow from aligning and securing the paper jig to punching and final assembly. The photos are arranged in workflow order.
 
+> **Note:** These photos were made with a paper-jig revision from before the current v1 geometry update. They remain as examples of the punching workflow, encoding, and assembly. For the exact current candidate-point dimensions and placement, use the latest [specification](specification.md) and [punching-jig PDF](../pdf/bip39-washer-punching-jig-m8-a4.pdf).
+
 ## 1. Jig aligned and secured to the washer
 
 ![Washer Punch39 jig aligned and secured to a washer with masking tape](../images/photos/washer-punch39-jig-alignment.jpg)
