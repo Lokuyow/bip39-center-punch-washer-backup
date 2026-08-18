@@ -70,19 +70,29 @@ The logical block center angles are:
 | 270° | BIP39 ones |
 | 315° | CHECK |
 
+## Local coordinate system
+
+The geometry of each block is defined in a local Cartesian coordinate system rotated to that block's center angle `θ`.
+
+- `y` axis: radial direction from the washer center toward angle `θ`, positive outward
+- `x` axis: tangential direction perpendicular to `y`, positive toward the clockwise side when viewed from the front
+- origin: washer center
+
+At `θ = 0°` for START/SET, the left side therefore has `x < 0` and the right side has `x > 0`. For digit blocks, the local coordinates below are rotated by the block center angle `θ` to place them on the washer.
+
 ## START/SET geometry
 
 The START/SET marker occupies the 0° block in the current reference layout.
 
 Fixed points:
 
-- outer fixed point: radius 10.0 mm, angle 0°
-- inner fixed point: radius 6.4 mm, angle 0°
+- outer fixed point: `x = 0 mm`, `y = 10.0 mm`
+- inner fixed point: `x = 0 mm`, `y = 6.4 mm`
 
 SET candidates:
 
-- left: radius 8.4 mm, angle -10° / 350°
-- right: radius 8.4 mm, angle +10°
+- left: `x = -1.5 mm`, `y = 8.2 mm`
+- right: `x = +1.5 mm`, `y = 8.2 mm`
 
 **SET A / B is an identifier used to distinguish different mnemonics when more than one mnemonic is stored.** It does not split one mnemonic into A and B; all faces belonging to one mnemonic use the same SET value.
 
@@ -95,14 +105,16 @@ Standard assignments:
 
 ## Digit cells
 
-Each decimal digit is represented by four candidate points arranged as a compact square-like cell on the washer.
+Each decimal digit is represented by four candidate points forming a **2.0 mm × 2.0 mm square whose center lies on the block center radial line at radius 8.2 mm**. One pair of square sides is radial and the other pair is tangential.
 
-For a digit block whose center angle is `θ`, the four candidate points are:
+For a digit block whose center angle is `θ`, place the four candidate points at these local coordinates, then rotate the whole cell by `θ`:
 
-- outer, counterclockwise side: radius **9.2 mm**, angle **θ - 7°**
-- outer, clockwise side: radius **9.2 mm**, angle **θ + 7°**
-- inner, counterclockwise side: radius **7.2 mm**, angle **θ - 7°**
-- inner, clockwise side: radius **7.2 mm**, angle **θ + 7°**
+- outer, counterclockwise side: `x = -1.0 mm`, `y = 9.2 mm`
+- outer, clockwise side: `x = +1.0 mm`, `y = 9.2 mm`
+- inner, counterclockwise side: `x = -1.0 mm`, `y = 7.2 mm`
+- inner, clockwise side: `x = +1.0 mm`, `y = 7.2 mm`
+
+The cell center is therefore `x = 0`, `y = 8.2 mm`, and the candidate-point spacing is **2.0 mm** in both the radial and tangential directions.
 
 The dot shapes for decimal digits 0–9 are those of standard braille numerals using the upper four dots. The numeric indicator is omitted because the field is defined as numeric.
 
@@ -181,6 +193,8 @@ The current reference jig is designed for A4 printing with:
 
 - 12 identical faces
 - 3 columns × 4 rows
+- digit cells centered at radius 8.2 mm as 2.0 mm squares
+- SET candidates at `x = ±1.5 mm`, `y = 8.2 mm`
 - 50 mm scale-verification line
 - 100% / actual-size / no-scaling printing
 
