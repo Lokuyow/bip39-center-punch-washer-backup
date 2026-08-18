@@ -18,8 +18,6 @@ Each marked washer face stores one mnemonic word as a four-digit decimal BIP39 w
 
 > **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
 
-> **About the photos:** Some physical-example photos were made with a jig revision from before the current v1 geometry update. For exact current dimensions, use the [specification](docs/specification.md) and [punching-jig PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf).
-
 ## Features
 
 - Uses inexpensive, widely available stainless-steel washers
