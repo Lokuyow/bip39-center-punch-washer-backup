@@ -18,24 +18,15 @@ Each marked washer face stores one mnemonic word as a four-digit decimal BIP39 w
 
 > **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
 
-## Features
-
-- Uses inexpensive, widely available stainless-steel washers
-- Can be recovered from printed reference material without special software
-- Preserves mnemonic order even if washers become separated
-- Includes a simple error-detection check that can be verified by hand
-- Keeps the printable jig free of seed-specific secret information
-
 ## Advantages compared with other approaches
 
 Washer Punch39 prioritizes **commodity materials, easy rework after mistakes, human-readable recovery, and recoverability after the washers are separated** rather than minimizing physical size or punch count.
 
-- **No dedicated metal plate required** — It can be built from commonly available stainless-steel washers, a bolt, nuts, a center punch, and a printed paper jig. The method does not depend on continued availability of a proprietary plate.
-- **Punching mistakes stay local** — If one word is punched incorrectly, only that washer needs to be replaced and remade. This avoids designs where a mistake on a single plate can require remaking a much larger portion of the backup.
+- **No dedicated metal plate required** — It can be built from commonly available stainless-steel washers, a bolt, nuts, a center punch, and a printed paper jig, without depending on continued availability of a proprietary plate.
+- **Punching mistakes stay local** — If a mistake is made, only that washer needs to be replaced and remade.
 - **Recoverable even when separated** — Every marked face carries SET, order, BIP39 word number, and CHECK, so recovery does not depend solely on the physical stacking order.
-- **Human-friendly decimal encoding** — BIP39 words are stored as the decimal range `0001`–`2048`. No binary conversion is required, and the backup can be decoded and checked using printed reference material and pencil-and-paper arithmetic.
-- **Per-word local checking** — Each face includes a simple mod-10 CHECK for its BIP39 word number, allowing a reader to detect a suspicious reading before the entire mnemonic has been reconstructed.
-- **Easy to obscure for disposal** — Because the data is encoded by the presence or absence of candidate punch marks, random additional punches near the candidate positions can destroy the original pattern. Disposal does not require the jig or precise alignment.
+- **Human-readable and easy to check** — BIP39 words are stored as four-digit decimal numbers in the range `0001`–`2048`, with a simple mod-10 CHECK on each face. Recovery can be done from printed references with pencil-and-paper arithmetic, without binary conversion or dedicated software.
+- **Easy to obscure for disposal** — Random extra punches near the candidate positions can make the original pattern difficult to distinguish. Disposal does not require the jig or precise alignment.
 - **Blank outer surfaces without an extra cover** — In the 12-word, seven-washer reference assembly, the first and last washers are punched on only one side and their blank faces are placed outward.
 
 The tradeoff is that Washer Punch39 may use more parts and more punch marks than a single-plate design or a dense binary encoding. The design deliberately favors **availability, repairability, and human verification** over maximum compactness.
@@ -84,13 +75,10 @@ Washer Punch39 evolves an earlier washer-based DIY metal wallet published by the
 
 Main improvements:
 
-- **Faster construction** — Electro-etching requires masking, handwriting, drying, etching, and cleanup; the author's 24-word build took about four hours. Washer Punch39 instead uses center-punch marks through a paper jig.
-- **Less fine manual work** — Scratching handwritten letters through the masking layer requires dexterity. The current method only requires punching defined candidate positions.
-- **Simpler tools and cleanup** — The workflow no longer needs batteries, alligator clips, etching solution, nail polish, or nail-polish remover.
+- **Faster and easier to make** — Electro-etching requires masking, handwriting, drying, etching, and cleanup; the author's 24-word build took about four hours. The current method only punches candidate positions through a paper jig and no longer needs fine masking work or etching tools and chemicals.
 - **More explicit encoding** — Instead of writing English words directly, Washer Punch39 records BIP39 word numbers with braille-style digits and defines SET, order, and CHECK as part of a fixed format.
-- **Easier disposal** — Electro-etched text is cumbersome to make reliably unreadable. With Washer Punch39, the information is the presence or absence of candidate marks, so random extra punch marks near those positions can destroy the original pattern. No jig or precise alignment is required for disposal.
-- **Double nut instead of a spring washer** — The earlier design used a spring washer, but its spring action was largely lost after the heat test. The current reference assembly uses two nuts tightened against each other.
-- **Seven washers instead of eight for 12 words** — The earlier arrangement used six data washers plus blank washers on the front and back. The current arrangement makes the first and last washers single-sided and places their blank faces outward, reducing the total to seven washers.
+- **Easier disposal** — Random extra punches near the candidate positions can destroy the original pattern without a jig or precise alignment.
+- **Improved assembly** — The spring washer, which lost most of its spring action after heating, was replaced by a double-nut arrangement; the 12-word reference assembly also removes the two dedicated blank outer washers and reduces the stack from eight washers to seven.
 
 ## Punching workflow
 
