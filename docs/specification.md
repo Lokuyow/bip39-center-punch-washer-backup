@@ -6,24 +6,25 @@ This document records the current reference format for Washer Punch39 (BIP39 Cen
 
 ## Format version
 
-The current encoding, geometry, and recovery rules are designated **Washer Punch39 format v1**.
+The current specification is **Washer Punch39 format draft v1**.
 
-If a future change alters how existing washers must be interpreted, that incompatible change should use a new format version.
+draft v1 is not final and may receive incompatible changes before v1 is finalized. After v1 is finalized, changes that alter how existing washers are interpreted should use a new format version.
 
-The v1 identifier itself is not encoded on each washer face. For long-term storage, keep the non-secret format identifier `Washer Punch39 v1` with the backup documentation.
+The format name itself is not encoded on each washer face. If using draft v1, keep the non-secret identifier `Washer Punch39 draft v1` with the backup documentation.
 
 ## Scope
 
-The method itself is intended to be adaptable. The current reference implementation uses:
+The published reference implementation in this repository targets a **12-word BIP39 English mnemonic**.
 
 - BIP39 English
-- a 12-word mnemonic as the reference example
 - DIN 9021-style M8 washer
 - SUS304 / A2 stainless steel
 - 24.0 mm OD
 - 8.4 mm ID
 - 2.0 mm thickness
-- 7 washers in the current 12-word reference assembly
+- 7 washers for 12 words
+
+Because order uses two decimal digits, the same encoding can also represent a 24-word mnemonic. A 24-word assembly is not part of the current published reference implementation.
 
 These choices define the printable reference material and reference assembly in this repository; they are not fundamental requirements of the underlying method. Different washer dimensions, word counts, layouts, tooling, or stacking arrangements require corresponding geometry and recovery rules to be regenerated and independently verified where applicable.
 
@@ -102,6 +103,8 @@ Standard assignments:
 - B = left SET candidate marked
 - both = reserved / invalid by default
 - neither = reserved / invalid by default
+
+Published reference examples use SET A, but the maker may choose either A or B.
 
 ## Digit cells
 
@@ -206,8 +209,8 @@ The current reference workflow punches directly through the paper jig with a cen
 
 ## BIP39 passphrase
 
-Washer Punch39 format v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not part of this format. If a passphrase is used, it must be backed up separately.
+Washer Punch39 format draft v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not part of this format. If a passphrase is used, it must be backed up separately.
 
 ## Status
 
-v1 identifies the current format, but the project itself remains experimental. Physical testing, dimensional verification, and independent review are still ongoing.
+draft v1 is the candidate specification for the future v1 release. Physical testing, dimensional verification, and independent review are still ongoing.
