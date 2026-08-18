@@ -92,6 +92,8 @@ This is intentionally different from the 0-based 11-bit index used internally by
 
 Digits use the shape of standard braille numerals, restricted to the upper four dots. No numeric indicator is stored because the field is defined to contain digits only.
 
+In the current M8 reference jig, each digit cell is a **2.0 mm square centered at radius 8.2 mm**. See the [specification](docs/specification.md) for the exact candidate-point coordinates.
+
 The same digit shapes can be represented with Unicode braille characters:
 
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
@@ -106,15 +108,17 @@ The start marker and set identifier share one compact symbol.
 
 **SET A / B is an identifier used to distinguish different mnemonics when more than one mnemonic is stored.** It is not a scheme for splitting one mnemonic into A and B; all faces belonging to one mnemonic use the same SET value.
 
-Two fixed marks are always present on the center radial line:
+For the current reference geometry, define local `y` along the START/SET center radial line, positive outward, and local `x` tangentially toward the clockwise side, positive clockwise.
 
-- outer fixed point: **r = 10.0 mm**
-- inner fixed point: **r = 6.4 mm**
+Fixed points:
 
-Two SET candidate points sit between them:
+- outer fixed point: **x = 0 mm, y = 10.0 mm**
+- inner fixed point: **x = 0 mm, y = 6.4 mm**
 
-- left SET candidate: **r = 8.4 mm, -10°**
-- right SET candidate: **r = 8.4 mm, +10°**
+SET candidates:
+
+- left SET candidate: **x = -1.5 mm, y = 8.2 mm**
+- right SET candidate: **x = +1.5 mm, y = 8.2 mm**
 
 Current standard use:
 
