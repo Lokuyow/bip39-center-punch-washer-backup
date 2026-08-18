@@ -14,169 +14,64 @@ A DIY metal-backup method for a [BIP39](https://github.com/bitcoin/bips/blob/mas
   <img src="images/photos/washer-punch39-assembled-stack.jpg" alt="Washer Punch39 washer stack secured with a double nut" height="220">
 </p>
 
-The design stores one mnemonic word per washer face as a human-readable decimal number encoded with four-point braille-style digits. A printable full-scale punching jig is used to position the punch marks.
+Each marked washer face stores one mnemonic word as a four-digit decimal BIP39 word number encoded with four-point braille-style digits. A printable full-scale paper jig positions the punch marks.
 
-> **Status:** Experimental / work in progress. v1 identifies the current encoding, geometry, and recovery rules. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
+> **Status:** Experimental / work in progress. Do not use this as the only backup of real funds until you have independently verified the specification, printed dimensions, punching process, and recovery procedure.
 
-## Design goals
+> **About the photos:** Some physical-example photos were made with a jig revision from before the current v1 geometry update. For exact current dimensions, use the [specification](docs/specification.md) and [punching-jig PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf).
 
-- Use inexpensive, widely available stainless-steel washers.
-- Keep recovery possible with printed reference material and no special software.
-- Preserve word order even if washers become separated.
-- Make the start position visually identifiable.
-- Add a simple per-word error-detection check that can be verified by hand.
-- Keep the printable jig free of seed-specific secret information.
-- Keep the underlying method adaptable to different washer sizes, word counts, and physical implementations.
+## Features
 
-## Current reference implementation
+- Uses inexpensive, widely available stainless-steel washers
+- Can be recovered from printed reference material without special software
+- Preserves mnemonic order even if washers become separated
+- Includes a simple error-detection check that can be verified by hand
+- Keeps the printable jig free of seed-specific secret information
 
-The printable reference material currently provided by this repository targets:
+## How it works
 
-- DIN 9021-style M8 flat washer
-- SUS304 / A2 stainless steel
-- Outside diameter: **24.0 mm**
-- Inside diameter: **8.4 mm**
-- Thickness: **2.0 mm**
-- 1 marked face = 1 mnemonic word
-- Reference assembly: **12-word mnemonic = 7 washers**
-
-In the current 7-washer reference assembly, the first and seventh washers are punched on only one face. The five washers between them use both faces. When stacked on a bolt, the blank face of the first washer and the blank face of the seventh washer are placed outward. This hides the braille-style punch marks from direct outside view while the stack is assembled.
-
-After assembly, the stack is secured with **two nuts tightened against each other as a double-nut arrangement** to reduce the chance of loosening during storage.
-
-This seven-washer arrangement is an optional physical implementation, not a requirement of the encoding method. The person making the backup may choose another washer count or stacking arrangement.
-
-The washer dimensions and 12-word example are also choices made for the current reference implementation, not fundamental requirements of the method. Other washer dimensions, word counts, layouts, or tooling can be used if the geometry and recovery rules are adapted and independently verified.
-
-## Data stored on each face
-
-Read the face from the **START/SET marker clockwise**:
+Read each marked face **clockwise from the START/SET marker**:
 
 ```text
 START/SET | order (2 digits) | BIP39 word number (4 digits) | CHECK
 ```
 
-This is an 8-block layout:
+- **SET** — identifies different mnemonics when more than one is stored; standard use is A=right, B=left
+- **Order** — `01` through `12` in the current 12-word reference implementation
+- **BIP39 word number** — the BIP39 English list numbered from `0001` through `2048`
+- **CHECK** — simple mod 10 calculated from the four BIP39 digits only
 
-1. START/SET
-2. order tens digit
-3. order ones digit
-4. BIP39 thousands digit
-5. BIP39 hundreds digit
-6. BIP39 tens digit
-7. BIP39 ones digit
-8. CHECK digit
-
-### Order
-
-The mnemonic position is stored as two decimal digits in the current reference implementation:
-
-```text
-01 ... 12
-```
-
-### BIP39 word number
-
-This project currently uses a **1-based human-facing numbering scheme** for the BIP39 English word list:
-
-```text
-0001 = abandon
-0002 = ability
-...
-2048 = zoo
-```
-
-This is intentionally different from the 0-based 11-bit index used internally by BIP39 implementations.
-
-## Four-point digit encoding
-
-Digits use the shape of standard braille numerals, restricted to the upper four dots. No numeric indicator is stored because the field is defined to contain digits only.
-
-In the current M8 reference jig, each digit cell is a **2.0 mm square centered at radius 8.2 mm**. See the [specification](docs/specification.md) for the exact candidate-point coordinates.
-
-The same digit shapes can be represented with Unicode braille characters:
+Digits use the upper four dots of standard braille numerals. The numeric indicator is omitted because the fields are numeric-only.
 
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | ⠚ | ⠁ | ⠃ | ⠉ | ⠙ | ⠑ | ⠋ | ⠛ | ⠓ | ⠊ |
 
-The Unicode braille characters above are a text representation of the punch patterns; the numeric indicator is omitted.
+See the [specification](docs/specification.md) for exact block angles, candidate-point coordinates, digit-cell dimensions, and other geometry.
 
-## START/SET marker
+## Current reference implementation
 
-The start marker and set identifier share one compact symbol.
+The printable reference material in this repository targets:
 
-**SET A / B is an identifier used to distinguish different mnemonics when more than one mnemonic is stored.** It is not a scheme for splitting one mnemonic into A and B; all faces belonging to one mnemonic use the same SET value.
+- DIN 9021-style M8 flat washer
+- SUS304 / A2 stainless steel
+- **24.0 mm OD / 8.4 mm ID / 2.0 mm thickness**
+- 1 marked face = 1 mnemonic word
+- **12-word mnemonic = 7 washers**
 
-For the current reference geometry, define local `y` along the START/SET center radial line, positive outward, and local `x` tangentially toward the clockwise side, positive clockwise.
+In the seven-washer reference assembly, the blank faces of the first and seventh washers are placed outward so punch marks are not directly visible while assembled. The stack is secured on a bolt with a **double-nut arrangement**.
 
-Fixed points:
-
-- outer fixed point: **x = 0 mm, y = 10.0 mm**
-- inner fixed point: **x = 0 mm, y = 6.4 mm**
-
-SET candidates:
-
-- left SET candidate: **x = -1.5 mm, y = 8.2 mm**
-- right SET candidate: **x = +1.5 mm, y = 8.2 mm**
-
-Current standard use:
-
-- **A = right SET point only**
-- **B = left SET point only**
-- both SET points = reserved / invalid by default
-- neither SET point = reserved / invalid by default
-
-The reserved states may be assigned by a derivative implementation, but are not part of the current A/B standard.
-
-## CHECK digit
-
-CHECK is a single decimal digit calculated with simple mod 10.
-
-Only the four digits of the BIP39 word number are included. The SET identifier and order are not included.
-
-Example:
-
-```text
-BIP39 number: 2048
-2 + 0 + 4 + 8 = 14
-CHECK = 6
-14 + 6 = 20
-```
-
-During recovery, the four BIP39 digits plus CHECK should sum to a multiple of 10.
-
-CHECK is for **error detection, not error correction**. A single digit substitution is detected, but some combinations of multiple errors can cancel each other out.
+The seven-washer arrangement and washer dimensions are part of the current reference implementation, not requirements of the underlying encoding method.
 
 ## Punching workflow
 
-The current workflow uses a full-scale paper jig and punches directly through the paper with a center punch.
+1. Print the [punching-jig PDF](pdf/bip39-washer-punching-jig-m8-a4.pdf) at **100% / actual size / no scaling**.
+2. Verify the print scale using the 50 mm reference line.
+3. Align and secure the paper jig to the washer.
+4. Punch only the required candidate positions directly through the paper, then remove the jig and inspect the result.
+5. Repeat on the opposite face when needed.
 
-1. Print the jig at **100% / actual size / no scaling**.
-2. Verify the printed scale using the 50 mm reference line.
-3. Align the jig with the washer specified by that jig.
-4. Punch only the candidate positions required by the data.
-5. Remove the jig and visually verify the result.
-6. Repeat on the opposite face when that washer is intended to carry a second word.
-
-The jig itself contains all candidate positions and therefore does not need to contain seed-specific secret data.
-
-## Recovery overview
-
-For the current reference layout:
-
-1. Face the washer side being read toward you.
-2. Find the START/SET marker.
-3. Determine A or B from the left/right SET mark.
-4. Read clockwise.
-5. Decode the two-digit order.
-6. Decode the four-digit BIP39 word number.
-7. Decode CHECK and verify mod 10.
-8. Convert the 1-based number to the BIP39 English word.
-9. If multiple mnemonics are present, group faces by SET first, then sort each SET by order.
-10. Independently verify the recovered mnemonic before using it.
-
-In the 7-washer reference assembly, the two outward-facing blank surfaces are intentional and do not represent missing words.
+See the [recovery guide](docs/recovery.md) for the recovery procedure.
 
 ## Printable PDFs
 
@@ -186,22 +81,20 @@ In the 7-washer reference assembly, the two outward-facing blank surfaces are in
 
 ## Documentation
 
-- [Physical example](docs/physical-example.md)
-- [Heat and quench test (supplemental)](docs/fire-test.md)
 - [Specification](docs/specification.md)
 - [Recovery guide](docs/recovery.md)
 - [Design rationale](docs/design-rationale.md)
+- [Physical example](docs/physical-example.md)
+- [Heat and quench test (supplemental)](docs/fire-test.md)
 
 ## Important limitations
 
-- This is a physical backup format, not encryption.
-- Anyone who can read all required washer faces can recover the mnemonic.
-- **Washer Punch39 v1 stores the BIP39 mnemonic only. If you use a BIP39 passphrase, back up that passphrase separately.**
-- Blank outer faces only conceal punch marks from direct outside view; they are not a security boundary.
-- The mod-10 CHECK does not detect every possible multi-digit error.
-- SET and order are intentionally not covered by the per-face CHECK.
-- Printable dimensions must be independently verified before punching real backup material.
-- The PDFs and dimensions in this repository describe a particular reference implementation. If you adapt the method to another washer size, word count, layout, or tool, you are responsible for regenerating and verifying the geometry and recovery procedure.
+- This is a physical backup format, not encryption. Anyone who can read all required washer faces can recover the mnemonic.
+- **Washer Punch39 v1 stores the BIP39 mnemonic only.** If you use a BIP39 passphrase, back it up separately.
+- The mod-10 CHECK is for error detection, not error correction, and does not detect every possible multi-digit error.
+- SET and order are intentionally excluded from the per-face CHECK.
+- Verify the printed scale and punching/recovery procedure before creating a real backup.
+- If adapting the method to another washer size, word count, layout, or tool, regenerate and verify the corresponding geometry and recovery rules.
 
 ## License
 
