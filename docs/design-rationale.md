@@ -79,6 +79,8 @@ Current standard:
 
 SET is **secondary metadata used to distinguish different mnemonics when more than one mnemonic is stored**. A/B does not represent shares of one mnemonic or a 2-of-2 scheme. All faces belonging to one mnemonic use the same SET value, and SET can be used to group mixed washers during recovery.
 
+Published reference examples use A, but the maker may choose either A or B.
+
 ## Why are SET and order not protected by CHECK?
 
 CHECK is intended to let a person verify the core per-face payload, the BIP39 word number, with a simple hand calculation.
@@ -122,7 +124,7 @@ Compared with first transferring the candidate positions to the washer with a pe
 - reduces position drift and transcription mistakes while copying marks,
 - allows the same jig containing all candidate positions to be used directly.
 
-The paper jig does not print seed-specific selections. Holes and punch marks created during use reflect work history, but because the jig contains every candidate position, repeated use adds more holes and weakens the correspondence between the used jig and any one secret backup.
+The paper jig does not print seed-specific selections. Reusing the same jig causes holes and punch marks from multiple uses to overlap, so the individual original patterns can no longer be uniquely reconstructed from the used jig alone.
 
 ## Adaptability
 
