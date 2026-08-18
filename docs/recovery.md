@@ -2,11 +2,11 @@
 
 [日本語](recovery_ja.md)
 
-This guide describes the current recovery procedure for the **Washer Punch39 format v1** reference 12-word BIP39 English format.
+This guide describes the current recovery procedure for the **Washer Punch39 format draft v1** reference 12-word BIP39 English format.
 
 ## Before you begin
 
-Confirm that the backup uses **Washer Punch39 v1**, and use the v1 quick reference, specification, and word list.
+Confirm that the backup uses **Washer Punch39 draft v1**, and use the matching quick reference, specification, and word list.
 
 Use the quick-reference sheet for:
 
@@ -31,7 +31,9 @@ The seven-washer arrangement is optional; the person making the backup may have 
 
 SET A / B is an **identifier used to distinguish different mnemonics when more than one mnemonic is stored**. It is not a scheme for splitting one mnemonic into A and B.
 
-All faces belonging to one mnemonic use the same SET value. If multiple mnemonics are mixed together, group faces by SET before reconstructing the order within each SET.
+Published reference examples use A, but the maker may choose either A or B. All faces belonging to one mnemonic use the same SET value.
+
+If multiple mnemonics are mixed together, group faces by SET before reconstructing the order within each SET.
 
 ## Read one washer face
 
@@ -94,7 +96,7 @@ Useful independent checks can include the BIP39 checksum and, **when all wallet 
 
 ## BIP39 passphrase
 
-Washer Punch39 format v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not stored on the washers.
+Washer Punch39 format draft v1 stores the **BIP39 mnemonic**. A BIP39 passphrase is not stored on the washers.
 
 Recovering a wallet that used a passphrase therefore also requires that passphrase from a separate backup. A correct mnemonic combined with a different passphrase derives a different wallet.
 
